@@ -1,0 +1,58 @@
+@import 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@100;200;300;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #0d0d0d;
+    --main-color2: #fff;
+    --secondary-color:  #ee4266;
+    --main-font: 'Gantari', sans-serif;
+    --border-color: rgb(208, 208, 208);
+    --header-height: 100px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--main-font) ;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: 0.4s ease;
+}
+
+a:hover,
+a:active {
+    font-weight: 500;
+    cursor: pointer;
+}
+input {
+    border: none;
+    font-family: var(--main-font);
+}
+button {
+    outline: none;
+    border: none;
+    background: transparent;
+    font-family: var(--main-font);
+    cursor: pointer;
+    font-size: 1.8rem;
+    transition: 0.4s ease;
+}

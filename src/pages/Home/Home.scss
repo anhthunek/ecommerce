@@ -1,0 +1,64 @@
+@import '../../components/Globalstyle/mixins' ;
+.home__wrapper {
+    margin-top: var(--header-height);
+    width: 100%; 
+}
+.home__container {
+    width: 80%;
+    margin: auto;
+    @include Responsive (phone) {
+        width: 90%;
+     }
+}
+.home__input__area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+.home__input__container {
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    input {
+        outline: none;
+        padding: 7px 10px 7px 9px;
+        width: 96%;
+        @include Responsive (phone) {
+            width: 90%; 
+        }
+        
+    }
+}
+.home__img__area {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    img {
+        width: 100%;
+    }
+}
+.home__banner__area {
+    background-image: linear-gradient(95.2deg, rgb(47, 126, 165) 26.8%, rgba(192,229,246,1) 64%);
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 30px 0;
+}
+.banner__text {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.banner__btn {
+    background-color: var(--main-color);
+    color: var(--main-color2);
+    padding: 10px 12px;
+    border: 2px solid var(--main-color);
+    &:hover {
+        background-color: transparent;
+        color: var(--main-color);
+    }
+    .banner__icon {
+        padding-left: 10px;
+    }
+}

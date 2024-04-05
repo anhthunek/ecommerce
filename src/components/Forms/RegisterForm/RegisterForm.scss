@@ -1,0 +1,21 @@
+@import '../../Globalstyle/mixins';
+.registerform__wrapper {
+    width: 40%;
+    input {
+        padding-left: 10px;
+    }
+    .form__btn {
+        background-color: var(--secondary-color);
+    }
+    @include Responsive(phone) {
+        width: 90%;
+    }
+}
+.form__label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form__msg {
+    color: var(--secondary-color);
+} 

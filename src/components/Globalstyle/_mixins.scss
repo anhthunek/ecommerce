@@ -1,0 +1,15 @@
+@mixin Responsive($divice) {
+    @if $divice == pc {
+        @media only screen and (min-width: 1024px) {
+            @content;
+        }
+    } @else if $divice == tablet {
+        @media only screen and (min-width: 740px) and (max-width: 1023px) {
+            @content;
+        }
+    } @else if $divice == phone {
+        @media only screen and (max-width: 739px) {
+            @content;
+        }
+    }
+}

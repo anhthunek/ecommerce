@@ -1,0 +1,43 @@
+@import '../../Globalstyle/mixins';
+.footer_wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+.footer__container {
+  border-top: 2px solid var(--border-color);
+  padding: 20px 0;
+}
+.footer__logo {
+  margin-bottom: 20px;
+}
+.footer__icon {
+  font-size: 2rem;
+  margin: 0 10px;
+}
+.footer_row {
+  margin-bottom: 20px;
+}
+.row__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include Responsive (phone) {
+    flex-direction: column;
+  }
+  li {
+    padding: 0 20px;
+  }
+}
+.footer__title {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.footer__social {
+    margin-bottom: 20px;
+}
+.footer__copyright {
+    span {
+        color: gray;
+    }
+}

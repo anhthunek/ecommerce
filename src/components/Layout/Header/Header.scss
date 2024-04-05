@@ -1,0 +1,136 @@
+@import "../../Globalstyle/mixins";
+.header {
+  position: fixed ;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
+  
+}
+.container {
+  width: 100%;
+  
+
+}
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--main-color2);
+
+}
+.nav__mobile,
+.nav__logo__mobile,
+.nav__menu_sidebar {
+  @include Responsive(pc) {
+    display: none;
+  }
+  @include Responsive(tablet) {
+    display: none;
+  }
+}
+.nav__logo {
+  @include Responsive(phone) {
+    display: none;
+  }
+}
+.nav__icon {
+  font-size: 2rem;
+}
+.nav__menu__container {
+  .nav__menu__area {
+    @include Responsive(phone) {
+      transform: translateX(-100%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background: #fff;
+      width: 70%;
+      height: 100vh;
+    }
+  }
+  >.active {
+    @include Responsive(phone) {
+      animation: lefttoright 1s ease-in-out;
+      transform: translateX(0);
+    }
+  }
+  @keyframes lefttoright {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+      color: aqua;
+    }
+   
+  }
+  
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Responsive(phone) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+}
+.nav__menu_sidebar {
+  @include Responsive(phone) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+}
+.nav__item {
+  padding: 0 10px;
+}
+
+.nav__btns {
+  display: flex;
+  align-items: center;
+  button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 20px;
+   border: 1px solid var(--main-color);
+   border-radius: 4px;
+   padding: 4px 8px;
+   @include Responsive (phone) {
+    font-size: 14px; 
+}
+   &:hover {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    color: #fff;
+   }
+   span {
+    margin-right: 10px;
+   }
+
+  }
+  .nav__cart {
+    display: flex;
+    border: 1px solid var(--border-color);
+    padding: 5px 6px;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: var(--main-color2);
+    @include Responsive (phone) {
+      display: none; 
+   } 
+}
+}
+.nav__cart__mobile {
+  display: none;
+  @include Responsive (phone) {
+    display: block;
+  } 
+}
