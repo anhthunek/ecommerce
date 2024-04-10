@@ -1,4 +1,13 @@
-import {createStore} from '@reduxjs/toolkit'
-import { rootReducer } from './rootReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import userSlice from '../components/Forms/LoginForm/userSlice';
 
-export const store = createStore(rootReducer);
+
+const rootReducer = {
+    user: userSlice,
+};
+
+const store = configureStore({
+    reducer: rootReducer,
+});
+
+export default store;

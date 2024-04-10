@@ -5,10 +5,15 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import Login from "../../Forms/LoginForm";
-
+import { useDispatch, useSelector } from "react-redux";
+import {login, logout} from '../../Forms/LoginForm/userSlice'
+import Account from "../../Account";
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedin = useSelector(state => state.user.login)
+
   const handleClickLogin = () => {
     setShowLogin(!showLogin)
   }
@@ -65,7 +70,7 @@ function Header() {
               </div>
             </div>
             <div className="nav__btns ">
-              <button onClick={handleClickLogin}><span>Đăng nhập</span> <FontAwesomeIcon className="nav__icon" icon={faSignIn} /></button>
+             {isLoggedin ? (<Account/>) : (<button onClick={handleClickLogin}><span>Đăng nhập</span> <FontAwesomeIcon className="nav__icon" icon={faSignIn} /></button>)}
               <Link className="nav__cart" to='/cart'><FontAwesomeIcon className="nav__icon" icon={faCartArrowDown} /></Link>
             </div>
           </div>

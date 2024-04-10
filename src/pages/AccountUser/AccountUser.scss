@@ -1,0 +1,36 @@
+.account__wrapper {
+    // margin-top: var(--header-height);
+    width: 80%;
+    margin: var(--header-height) auto 0 auto ;
+}
+.account__title {
+    text-align: center;
+    font-size: 45px;
+    span {
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+    .acc__icon {
+        color: var(--secondary-color);
+        font-size: 40px;
+    }
+}
+
+.account__details {
+    margin-bottom: 50px;
+    
+    &__title {
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 20px;
+    }
+    &__area {
+        display: flex;
+        padding:10px 20px;
+        justify-content: space-between;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15) ;
+    }
+    &__col {
+        width: 50%;
+    }
+}

@@ -51,8 +51,11 @@
 
 
 .form__input {
+    margin-bottom: 10px;
+}
+.input__area {
     position: relative;
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
     width: 100%;
     input {
         width: 100%;
