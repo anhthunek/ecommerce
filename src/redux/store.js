@@ -1,13 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit';
-import userSlice from '../components/Forms/LoginForm/userSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import rootReducer from "./reducers";
 
-
-const rootReducer = {
-    user: userSlice,
+const persistConfig = {
+  key: "root",
+  storage,
 };
 
-const store = configureStore({
-    reducer: rootReducer,
-});
+  
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default store;
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false, // Tắt serializable check để tránh lỗi
+  }),
+});
+export const persistor = persistStore(store);

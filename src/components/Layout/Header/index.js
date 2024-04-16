@@ -13,7 +13,7 @@ function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const dispatch = useDispatch();
   const isLoggedin = useSelector(state => state.user.login)
-
+  const cartItems = useSelector(state => state.cart )
   const handleClickLogin = () => {
     setShowLogin(!showLogin)
   }
@@ -71,7 +71,7 @@ function Header() {
             </div>
             <div className="nav__btns ">
              {isLoggedin ? (<Account/>) : (<button onClick={handleClickLogin}><span>Đăng nhập</span> <FontAwesomeIcon className="nav__icon" icon={faSignIn} /></button>)}
-              <Link className="nav__cart" to='/cart'><FontAwesomeIcon className="nav__icon" icon={faCartArrowDown} /></Link>
+              <Link className="nav__cart" to='/cart'><FontAwesomeIcon className="nav__icon" icon={faCartArrowDown} /><span>{cartItems.length}</span></Link>
             </div>
           </div>
         </div>

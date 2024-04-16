@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
 import Register from "./pages/Register";
 import AccountUser from "./pages/AccountUser";
+import Product from "./components/Product";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Layout/>}> 
           <Route index element={<Home/>}/>
           <Route path="/products" element= {<Products/>}/>
+          <Route path="/products/:id" element= {<Product/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/contact" element= {<Contact/>}/>
           <Route path="/cart" element= {<Cart/>}/>

@@ -15,9 +15,7 @@ function RegisterForm() {
   const [address, setAddress] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [userData, setUserData] = useState([]);
-  const nameRef = useRef();
 
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.login);
   console.log(isLoggedIn);
   const validate = () => {

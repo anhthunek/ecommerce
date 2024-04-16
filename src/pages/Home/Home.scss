@@ -21,6 +21,8 @@
 .home__input__container {
     border-bottom: 1px solid var(--border-color);
     width: 100%;
+    display: flex;
+    align-items: center;
     input {
         outline: none;
         padding: 7px 10px 7px 9px;

@@ -118,6 +118,7 @@
   }
   .nav__cart {
     display: flex;
+    position: relative;
     border: 1px solid var(--border-color);
     padding: 5px 6px;
     border-radius: 4px;
@@ -126,6 +127,21 @@
     @include Responsive (phone) {
       display: none; 
    } 
+   span {
+    position: absolute;
+    top: -10px;
+    right: -13px;
+    z-index: 2;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    font-size: 12px;
+    border-radius: 50%;
+    
+   }
 }
 }
 .nav__cart__mobile {

@@ -1,0 +1,76 @@
+@import "../Globalstyle/mixins";
+.product__wrapper {
+  width: 80%;
+  margin: var(--header-height) auto 0 auto;
+}
+.product__container {
+  width: 100%;
+  margin: 50px auto;
+  display: flex;
+  column-gap: 10px;
+  justify-content: space-between;
+  @include Responsive(phone) {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
+.product__img {
+  position: relative;
+  width: 40%;
+  min-height: 330px;
+
+  display: flex;
+  align-items: center;
+  @include Responsive(phone) {
+    width: 100%;
+  }
+  @include Responsive(tablet) {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+.product__desc {
+  width: 55%;
+  @include Responsive(phone) {
+    width: 100%;
+  }
+  @include Responsive(tablet) {
+    width: 100%;
+  }
+  &__title {
+    font-size: 29px;
+  }
+  &__price {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  &__category {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    button {
+      padding: 6px 10px;
+    }
+  }
+}
+.btn__cart {
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  margin-right: 30px;
+}
+.btn__buy {
+  background-color: var(--secondary-color);
+  color: var(--main-color2);
+  border: 1px solid var(--secondary-color);
+}
