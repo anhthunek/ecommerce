@@ -7,14 +7,7 @@ function Home() {
   return (
     <div className="home__wrapper">
       <div className="home__container">
-        <div className="home__input__area">
-          <div className="home__input__container">
-            <button className="home__input__btn">
-              <FontAwesomeIcon icon={faSearch} />
-            </button>
-            <input placeholder="Tìm kiếm sản phẩm" />
-          </div>
-        </div>
+       
         <div className="home__img__area">
           <img
             src="https://lp2.hm.com/hmgoepprod?source=url[https://www2.hm.com/content/dam/global_campaigns/season_09/ladies/1509ac/1509AC-3x2-1.jpg]&scale=size[960]&sink=format[jpeg],quality[80]"

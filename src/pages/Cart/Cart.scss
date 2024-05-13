@@ -68,3 +68,19 @@ tr:nth-child(even) {
     padding: 10px 0;
   }
 }
+.checkout__btn {
+  text-align: right;
+
+  margin-top: 20px;
+  &__area {
+    background-color: var(--secondary-color);
+    color: var(--main-color2);
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0.9;
+    transition: 0.4s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

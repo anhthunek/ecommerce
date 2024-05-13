@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import AccountUser from "./pages/AccountUser";
 import Product from "./components/Product";
 
+
 function App() {
   return (
     <GlobalStyle>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/cart" element= {<Cart/>}/>
           <Route path="/register" element= {<Register/>}/>
           <Route path="/account" element= {<AccountUser/>}/>
+
         </Route>
       </Routes>
     </GlobalStyle>

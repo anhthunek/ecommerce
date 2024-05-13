@@ -41,13 +41,13 @@ function Products() {
   ];
   useEffect(() => {
     const getProducts = async () => {
-      const res = await fetch("http://localhost:8000/products");
+      const res = await fetch("../../api/db.json");
       setData(await res.clone().json());
       setFilter(await res.json());
     };
     getProducts();
   }, []);
-
+  console.log(filter);
   const filterProduct = () => {
     if (filterMax === "" || filterMin === "") {
       setFilterMax('')
@@ -174,11 +174,11 @@ function Products() {
               <div className="product__info">
                 <div className="product__info__category">{prod.category}</div>
                 <div className="product__info__name">
-                  <a href="">{prod.title}</a>
+                  <Link to={`/products/${prod.id}`}>{prod.title}</Link>
                 </div>
                 <div className="product__info__price">{prod.price} VND</div>
              
-                <button className="product__info__btn">Mua ngay</button>
+                <Link to={`/products/${prod.id}`} className="product__info__btn">Xem ngay</Link>
               
               </div>
             </div>

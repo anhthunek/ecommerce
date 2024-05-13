@@ -40,11 +40,15 @@ import { createSlice } from '@reduxjs/toolkit';
             quantity: prod.quantity >1 ? prod.quantity - 1 : 1
         } :prod)
        },
+
+       checkout (state, action) {
+        return []
+       }
        
     }
 })
 
 
 const { actions, reducer } = cartSlice;
-export const { addProduct, deleteProduct, increment, decrement, inputQuantity } = actions;
+export const { addProduct, deleteProduct, increment, decrement, inputQuantity, checkout } = actions;
 export default cartSlice.reducer;

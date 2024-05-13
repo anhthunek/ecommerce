@@ -55,7 +55,7 @@ function AccountUser() {
         </div>
       </div>
         )
-        : (<h1>Đăng nhập để tiếp tục bạn nhé!</h1>)
+        : (<h1 className="text-msg">Đăng nhập để tiếp tục bạn nhé!</h1>)
       }
     </div>
   );

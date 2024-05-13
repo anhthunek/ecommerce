@@ -24,7 +24,7 @@
 }
 .nav__mobile,
 .nav__logo__mobile,
-.nav__menu_sidebar {
+.nav__menu {
   @include Responsive(pc) {
     display: none;
   }
@@ -80,7 +80,13 @@
     }
   }
 }
-.nav__menu_sidebar {
+.nav__item.sidebar {
+  display: none;
+  @include Responsive(phone) {
+    display: block;
+  }
+}
+.nav__menu {
   @include Responsive(phone) {
     display: flex;
     align-items: center;
@@ -116,6 +122,11 @@
    }
 
   }
+  .nav__account {
+    @include Responsive (phone) {
+      display: none;
+  }
+  }
   .nav__cart {
     display: flex;
     position: relative;
@@ -124,9 +135,6 @@
     border-radius: 4px;
     background-color: var(--main-color);
     color: var(--main-color2);
-    @include Responsive (phone) {
-      display: none; 
-   } 
    span {
     position: absolute;
     top: -10px;
