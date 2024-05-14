@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function Products() {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
-  const [filterSearch, setFilterSearch] = useState(" ");
+  const [filterSearch, setFilterSearch] = useState("");
   const [filterMin, setFilterMin] = useState("");
   const [filterMax, setFilterMax] = useState("");
   const [active, setActive] = useState("All");
