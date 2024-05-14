@@ -13,7 +13,7 @@ function Product() {
   const isLoggedin = useSelector((state) => state.user.login);
   useEffect(() => {
     const getProduct = async () => {
-      const res = await fetch(`http://localhost:8000/products/${id}`);
+      const res = await fetch(`https://fakestoreapi.com/products/${id}`);
       setProduct(await res.json());
     };
     getProduct();

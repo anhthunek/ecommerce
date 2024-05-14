@@ -192,12 +192,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   &__item {
     border: 1px solid var(--border-color);
     color: var(--main-color);
     padding: 4px 5px;
     font-size: 14px;
-    // margin: 0 10px 10px 0;
+   
+      margin-bottom: 10px;
+     
   }
 }
 .products__filter__category {

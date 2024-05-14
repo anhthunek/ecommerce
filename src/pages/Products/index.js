@@ -24,30 +24,30 @@ function Products() {
     },
     {
       id: 2,
-      name: "Clothes",
+      name: "men's clothing",
     },
     {
       id: 3,
-      name: "Accessories",
+      name: "jewelery",
     },
     {
       id: 4,
-      name: "Shoes",
+      name: "electronics",
     },
     {
       id: 5,
-      name: "Watches",
+      name: "women's clothing",
     },
   ];
   useEffect(() => {
     const getProducts = async () => {
-      const res = await fetch("../../api/db.json");
+      const res = await fetch("https://fakestoreapi.com/products");
       setData(await res.clone().json());
       setFilter(await res.json());
     };
     getProducts();
   }, []);
-  console.log(filter);
+  console.log(data);
   const filterProduct = () => {
     if (filterMax === "" || filterMin === "") {
       setFilterMax('')
