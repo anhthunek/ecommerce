@@ -35,7 +35,8 @@ function Cart() {
               <thead>
                 <tr>
                   <th>Xóa</th>
-                  <th>Sản phẩm</th>
+                  <th>Ảnh</th>
+                  <th>Tên</th>
                   <th>Đơn giá</th>
                   <th>Số lượng</th>
                   <th>Tổng tiền</th>
@@ -58,14 +59,17 @@ function Cart() {
                         </button>
                       </td>
                       <td>
-                        <div className="item__wrapper">
+                       
                           <div className="item__img">
                             <img src={item.image} />
                           </div>
-                          <div className="item__title">
+                          
+                      
+                      </td>
+                      <td>
+                      <div className="item__title">
                             <h4>{item.title}</h4>
                           </div>
-                        </div>
                       </td>
                       <td>{item.price}</td>
                       <td>
@@ -86,7 +90,7 @@ function Cart() {
               </tbody>
               <tfoot>
                 <tr>
-                  <td colSpan={4} style={{ textAlign: "right" }}>
+                  <td colSpan={5} style={{ textAlign: "right" }}>
                     <strong>Total:</strong>
                   </td>
                   <td>{total} </td>
@@ -103,7 +107,7 @@ function Cart() {
             </div>
           </div>
         ) : (
-          <h2 className="text-msg">
+          <h2 className="text-msg">  
             Giỏ hàng của bạn không có gì. Mua ngay thôi!
           </h2>
         )

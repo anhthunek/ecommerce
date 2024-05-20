@@ -21,6 +21,21 @@
     row-gap: 20px;
   }
 }
+.home__input__container {
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  input {
+      outline: none;
+      padding: 7px 10px 7px 9px;
+      width: 96%;
+      @include Responsive (phone) {
+          width: 90%; 
+      }
+      
+  }
+}
 .products__filter__btn {
   text-align: center;
   margin-bottom: 30px;

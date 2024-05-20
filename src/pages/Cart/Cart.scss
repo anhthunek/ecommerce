@@ -1,3 +1,4 @@
+@import "../../components/Globalstyle/mixins";
 .cart__wrapper {
   margin: var(--header-height) auto 0 auto;
   width: 80%;
@@ -16,26 +17,18 @@ td {
   }
   .product__desc__quantity {
     margin-bottom: 0;
-  }
+  } 
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.item__wrapper {
-  width: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .item__img {
-  width: 10%;
+  width: 70px;
   img {
     width: 100%;
   }
 }
-.item__title {
-  width: 80%;
-}
+
 .item__action {
   width: 100%;
   display: flex;
