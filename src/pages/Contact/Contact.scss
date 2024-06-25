@@ -1,0 +1,29 @@
+@import "../../components/Globalstyle/mixins";
+.contact__wrapper {
+  margin: var(--header-height) auto 0 auto;
+  width: 80%;
+}
+.contact__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.input__area {
+  textarea {
+    width: 100%;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid var(--border-color);
+  }
+  input {
+    padding: 8px 12px 8px 12px;
+  }
+}
+@include Responsive(phone) {
+  .contact__info {
+    flex-direction: column;
+    &__col {
+      margin-bottom: 20px;
+    }
+  }
+}

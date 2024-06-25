@@ -77,3 +77,49 @@ tr:nth-child(even) {
     }
   }
 }
+.cart__phone {
+  display: none;
+  @include Responsive(phone) {
+    display: block;
+  }
+  .product__desc__quantity {
+    margin: 0;
+  }
+  .item__img {
+    width: 30%;
+    padding-right: 10px;
+    img {
+      width: 100%;
+    }
+  }
+  .item__btn {
+    padding: 0 6px;
+  }
+  .cart__total {
+    text-align: right;
+  }
+}
+.cart__pc {
+  @include Responsive(phone) {
+    display: none;
+  }
+}
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item__info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item__quantity {
+  width: 65%;
+}
+.item__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

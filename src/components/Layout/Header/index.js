@@ -30,7 +30,7 @@ function Header() {
     localStorage.removeItem('cart');
   }
   return (
-    <>
+    <> 
       <div className="header">
         <div className="container">
           <div className="nav">
@@ -42,12 +42,12 @@ function Header() {
                 <FontAwesomeIcon className="nav__icon" icon={faBars} />
               </button>
               <NavLink className="nav__logo" to="/">
-                My Logo
+                MySHOP 
               </NavLink>
             </div>
             <div className="nav__menu__container">
               <NavLink className="nav__logo__mobile" to="/">
-                My Logo
+                MySHOP 
               </NavLink>
               <div
                 className={
@@ -55,8 +55,8 @@ function Header() {
                 }
               >
                 <div className="nav__menu">
-                  <NavLink className="" to="/">
-                    My Logo
+                  <NavLink className="nav__logo__menu" to="/">
+                    MySHOP 
                   </NavLink>
                   <button onClick={() => setShowMenu(!showMenu)}>
                     <FontAwesomeIcon className="nav__icon" icon={faXmark} />

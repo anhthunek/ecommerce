@@ -9,13 +9,20 @@
 }
 .footer__logo {
   margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 900;
+    background: -webkit-linear-gradient(#eeeeee, var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family:var(--logo-font);
+  
 }
 .footer__icon {
   font-size: 2rem;
   margin: 0 10px;
 }
 .footer_row {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .row__list {
   display: flex;

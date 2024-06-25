@@ -8,6 +8,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+export const categories = [
+  {
+    id: 1,
+    name: "All",
+  },
+  {
+    id: 2,
+    name: "Men's clothing",
+  },
+  {
+    id: 3,
+    name: "Jewelery",
+  },
+  {
+    id: 4,
+    name: "Electronics",
+  },
+  {
+    id: 5,
+    name: "Women's clothing",
+  },
+];
 function Products() {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
@@ -17,28 +39,7 @@ function Products() {
   const [active, setActive] = useState("All");
   const [select, setSelect] = useState("none");
   console.log(typeof filterMin);
-  const categories = [
-    {
-      id: 1,
-      name: "All",
-    },
-    {
-      id: 2,
-      name: "men's clothing",
-    },
-    {
-      id: 3,
-      name: "jewelery",
-    },
-    {
-      id: 4,
-      name: "electronics",
-    },
-    {
-      id: 5,
-      name: "women's clothing",
-    },
-  ];
+  
   useEffect(() => {
     const getProducts = async () => {
       const res = await fetch("https://fakestoreapi.com/products");
@@ -63,11 +64,11 @@ function Products() {
       } else {
         return filterMax !== "" && filterMin !== ""
           ? prod.title.toLowerCase().includes(filterSearch) &&
-              active === prod.category &&
+              active.toLowerCase() === prod.category &&
               prod.price >= filterMin &&
               prod.price <= filterMax
           : prod.title.toLowerCase().includes(filterSearch) &&
-              active === prod.category;
+              active.toLowerCase() === prod.category;
       }
     });
     const order =
@@ -77,7 +78,7 @@ function Products() {
           : result.sort((a, b) => b.price - a.price)
         : result;
 
-    setFilter(order);
+    setFilter(order);  
   };
 
   return (

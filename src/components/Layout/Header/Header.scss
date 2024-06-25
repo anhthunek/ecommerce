@@ -1,14 +1,15 @@
 @import "../../Globalstyle/mixins";
+
 .header {
   position: fixed ;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   height: 60px;
   line-height: 60px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
   
-}
+} 
 .container {
   width: 100%;
   
@@ -22,6 +23,14 @@
   background-color: var(--main-color2);
 
 }
+.nav__logo, .nav__logo__mobile, .nav__logo__menu {
+  font-family:var(--logo-font);
+  font-size: 28px;
+  font-weight: 900;
+  background: -webkit-linear-gradient(#eeeeee, var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .nav__mobile,
 .nav__logo__mobile,
 .nav__menu {
@@ -33,6 +42,7 @@
   }
 }
 .nav__logo {
+  
   @include Responsive(phone) {
     display: none;
   }

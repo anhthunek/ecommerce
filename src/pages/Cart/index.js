@@ -25,89 +25,130 @@ function Cart() {
   };
   console.log(cartItems);
   let total = 0;
+
   return (
     <div className="cart__wrapper">
       <Breadcrums />
       {isLoggedIn ? (
         cartItems.length > 0 ? (
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Xóa</th>
-                  <th>Ảnh</th>
-                  <th>Tên</th>
-                  <th>Đơn giá</th>
-                  <th>Số lượng</th>
-                  <th>Tổng tiền</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cartItems.map((item) => {
-                  total += item.price * item.quantity;
-                  return (
-                    <tr>
-                      <td>
-                        <button
-                          className="item__action"
-                          onClick={() => dispatch(deleteProduct(item))}
-                        >
-                          <FontAwesomeIcon
-                            className="action__btn"
-                            icon={faXmark}
-                          />
-                        </button>
-                      </td>
-                      <td>
-                       
+          <p>
+          <div className="cart__phone">
+              {cartItems.map((item) => {
+                total += item.price * item.quantity;
+                return (
+                  <div className="cart__item">
+                    <div className="item__btn">
+                      <button
+                        className="item__action"
+                        onClick={() => dispatch(deleteProduct(item))}
+                      >
+                        <FontAwesomeIcon
+                          className="action__btn"
+                          icon={faXmark}
+                        />
+                      </button>
+                    </div>
+                    <div className="item__info">
+                      <div className="item__img">
+                        <img src={item.image} />
+                      </div>
+                      <div className="item__quantity">
+                        <h4>{item.title}</h4>
+                        <div className="item__row">
+                          <p>{item.price} VND</p>
+                          <div className="product__desc__quantity">
+                            <button onClick={() => dispatch(increment(item))}>
+                              +
+                            </button>
+                            <input value={item.quantity} />
+                            <button onClick={() => dispatch(decrement(item))}>
+                              -
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div>
+              <table>
+                <thead className="cart__pc">
+                  <tr>
+                    <th>Xóa</th>
+                    <th>Ảnh</th>
+                    <th style={{ minWidth: 150 }}>Tên</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                  </tr>
+                </thead>
+                <tbody className="cart__pc">
+                  {cartItems.map((item) => {
+                    total += item.price * item.quantity;
+                    return (
+                      <tr>
+                        <td>
+                          <button
+                            className="item__action"
+                            onClick={() => dispatch(deleteProduct(item))}
+                          >
+                            <FontAwesomeIcon
+                              className="action__btn"
+                              icon={faXmark}
+                            />
+                          </button>
+                        </td>
+                        <td>
                           <div className="item__img">
                             <img src={item.image} />
                           </div>
-                          
-                      
-                      </td>
-                      <td>
-                      <div className="item__title">
+                        </td>
+                        <td>
+                          <div className="item__title">
                             <h4>{item.title}</h4>
                           </div>
-                      </td>
-                      <td>{item.price}</td>
-                      <td>
-                        <div className="product__desc__quantity">
-                          <button onClick={() => dispatch(increment(item))}>
-                            +
-                          </button>
-                          <input value={item.quantity} />
-                          <button onClick={() => dispatch(decrement(item))}>
-                            -
-                          </button>
-                        </div>
-                      </td>
-                      <td>{item.price * item.quantity}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colSpan={5} style={{ textAlign: "right" }}>
-                    <strong>Total:</strong>
-                  </td>
-                  <td>{total} </td>
-                </tr>
-              </tfoot>
-            </table>
-            <div className="checkout__btn">
-              <button
-                onClick={handleClickCheckOut}
-                className="checkout__btn__area"
-              >
-                Check out
-              </button>
+                        </td>
+                        <td>{item.price}</td>
+                        <td>
+                          <div className="product__desc__quantity">
+                            <button onClick={() => dispatch(increment(item))}>
+                              +
+                            </button>
+                            <input value={item.quantity} />
+                            <button onClick={() => dispatch(decrement(item))}>
+                              -
+                            </button>
+                          </div>
+                        </td>
+                        <td>{item.price * item.quantity}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan={5} style={{ textAlign: "center" }}>
+                      <strong>Total:</strong>
+                    </td>
+                    <td>{total}</td>
+                  </tr>
+                </tfoot>
+              </table>
+              <div className="checkout__btn">
+                <button
+                  onClick={handleClickCheckOut}
+                  className="checkout__btn__area"
+                >
+                  Check out
+                </button>
+              </div>
             </div>
-          </div>
+           
+          </p>
         ) : (
-          <h2 className="text-msg">  
+          <h2 className="text-msg">
             Giỏ hàng của bạn không có gì. Mua ngay thôi!
           </h2>
         )

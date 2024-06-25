@@ -21,6 +21,9 @@
     row-gap: 20px;
   }
 }
+.home__input__area {
+  margin-bottom: 20px;
+}
 .home__input__container {
   border-bottom: 1px solid var(--border-color);
   width: 100%;
@@ -163,7 +166,7 @@
   );
 }
 .product__info {
-  min-height: 130px;
+  min-height: 200px;
   text-align: center;
   &__name {
     a {
