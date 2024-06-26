@@ -94,9 +94,9 @@ function Products() {
             onChange={(e) => setFilterSearch(e.target.value.toLowerCase())}
             placeholder="Tìm kiếm sản phẩm"
           />
-          <button onClick={filterProduct} className="home__input__btn">
+          {/* <button onClick={filterProduct} className="home__input__btn">
             <FontAwesomeIcon icon={faArrowRight} />
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="products__filter">
@@ -159,7 +159,7 @@ function Products() {
       </div>
       <div className="products__filter__btn">
         <button onClick={filterProduct} className="filter__price__btn">
-          Lọc
+          Tìm kiếm
         </button>
       </div>
       <div className="products__list">

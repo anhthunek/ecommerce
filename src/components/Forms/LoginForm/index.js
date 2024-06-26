@@ -84,7 +84,7 @@ function LoginForm({ onClickClose }) {
           </button>
           <h2 className="form__title">Đăng nhập</h2>
           <div className="form__input">
-            <div className="input__area">
+            <div className="input__login">
               <FontAwesomeIcon className="form__input__icon" icon={faUser} />
               <input
                 className="form__email"
@@ -99,7 +99,7 @@ function LoginForm({ onClickClose }) {
             <p className="form__msg">{email === '' && errorMsg.emailInput}</p>
           </div>
          <div className="form__input">
-            <div className="input__area">
+            <div className="input__login">
               <FontAwesomeIcon onClick={() => {
                 setInputType(inputType === 'password' ? 'text' : 'password')
               }} className="form__input__icon" icon={inputType === 'password' ? faEyeSlash : faEye} /> 
@@ -108,7 +108,6 @@ function LoginForm({ onClickClose }) {
                 value={password}
                 type={inputType}
                 onChange={(e) => {
-                 
                   setPassword(e.target.value)
                 }}
                 placeholder="Nhập mật khẩu"

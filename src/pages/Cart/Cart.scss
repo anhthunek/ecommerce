@@ -22,13 +22,6 @@ td {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.item__img {
-  width: 70px;
-  img {
-    width: 100%;
-  }
-}
-
 .item__action {
   width: 100%;
   display: flex;
@@ -78,30 +71,22 @@ tr:nth-child(even) {
   }
 }
 .cart__phone {
-  display: none;
-  @include Responsive(phone) {
-    display: block;
-  }
+  margin-bottom: 20px;
   .product__desc__quantity {
     margin: 0;
   }
   .item__img {
-    width: 30%;
+    width: 80px;
     padding-right: 10px;
     img {
       width: 100%;
     }
   }
   .item__btn {
-    padding: 0 6px;
+    padding: 0 10px;
   }
   .cart__total {
     text-align: right;
-  }
-}
-.cart__pc {
-  @include Responsive(phone) {
-    display: none;
   }
 }
 .cart__item {
@@ -116,10 +101,21 @@ tr:nth-child(even) {
   justify-content: space-between;
 }
 .item__quantity {
-  width: 65%;
+  width: 90%;
 }
 .item__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  p, h4 {
+    font-size: 20px;
+  }
 }
+  @include Responsive(phone) {
+    .item__row {
+      p,h4{
+        font-size: 18px;
+      }
+      
+    }
+  }

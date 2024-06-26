@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
-function Cart() {
+function Cart() { 
   const isLoggedIn = useSelector((state) => state.user.login);
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ function Cart() {
       <Breadcrums />
       {isLoggedIn ? (
         cartItems.length > 0 ? (
-          <p>
+          <>
           <div className="cart__phone">
               {cartItems.map((item) => {
                 total += item.price * item.quantity;
@@ -74,65 +74,12 @@ function Cart() {
             </div>
             <div>
               <table>
-                <thead className="cart__pc">
-                  <tr>
-                    <th>Xóa</th>
-                    <th>Ảnh</th>
-                    <th style={{ minWidth: 150 }}>Tên</th>
-                    <th>Đơn giá</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                  </tr>
-                </thead>
-                <tbody className="cart__pc">
-                  {cartItems.map((item) => {
-                    total += item.price * item.quantity;
-                    return (
-                      <tr>
-                        <td>
-                          <button
-                            className="item__action"
-                            onClick={() => dispatch(deleteProduct(item))}
-                          >
-                            <FontAwesomeIcon
-                              className="action__btn"
-                              icon={faXmark}
-                            />
-                          </button>
-                        </td>
-                        <td>
-                          <div className="item__img">
-                            <img src={item.image} />
-                          </div>
-                        </td>
-                        <td>
-                          <div className="item__title">
-                            <h4>{item.title}</h4>
-                          </div>
-                        </td>
-                        <td>{item.price}</td>
-                        <td>
-                          <div className="product__desc__quantity">
-                            <button onClick={() => dispatch(increment(item))}>
-                              +
-                            </button>
-                            <input value={item.quantity} />
-                            <button onClick={() => dispatch(decrement(item))}>
-                              -
-                            </button>
-                          </div>
-                        </td>
-                        <td>{item.price * item.quantity}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
                 <tfoot>
                   <tr>
                     <td colSpan={5} style={{ textAlign: "center" }}>
                       <strong>Total:</strong>
                     </td>
-                    <td>{total}</td>
+                    <td style={{ textAlign: "right" }}>{Math.round(total,1)}</td>
                   </tr>
                 </tfoot>
               </table>
@@ -146,7 +93,7 @@ function Cart() {
               </div>
             </div>
            
-          </p>
+          </>
         ) : (
           <h2 className="text-msg">
             Giỏ hàng của bạn không có gì. Mua ngay thôi!
