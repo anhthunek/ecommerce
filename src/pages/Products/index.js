@@ -8,6 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading";
+
 export const categories = [
   {
     id: 1,
@@ -38,13 +40,16 @@ function Products() {
   const [filterMax, setFilterMax] = useState("");
   const [active, setActive] = useState("All");
   const [select, setSelect] = useState("none");
+  const [loading, setLoading] = useState(true)
   console.log(typeof filterMin);
   
   useEffect(() => {
+    setLoading(true)
     const getProducts = async () => {
       const res = await fetch("https://fakestoreapi.com/products");
       setData(await res.clone().json());
       setFilter(await res.json());
+      setLoading(false)
     };
     getProducts();
   }, []);
@@ -163,8 +168,8 @@ function Products() {
         </button>
       </div>
       <div className="products__list">
-        {filter.length >0 ?filter.map((prod) => {
-          return (
+        {!loading ? (filter.length > 0 ? filter.map((prod) => 
+            (
             <div key={prod.id} className="single__product">
               <div className="single__product__img">
                 <Link to={`/products/${prod.id}`}>
@@ -178,14 +183,13 @@ function Products() {
                   <Link to={`/products/${prod.id}`}>{prod.title}</Link>
                 </div>
                 <div className="product__info__price">{prod.price} VND</div>
-             
                 <Link to={`/products/${prod.id}`} className="product__info__btn">Xem ngay</Link>
-              
               </div>
             </div>
-          );
-        }) : <h3>Không có sản phẩm nào!</h3>}
+          )
+        ): <h4>Không có sản phẩm nào</h4>)  : <Loading/>}
       </div>
+      
     </div>
   );
 }

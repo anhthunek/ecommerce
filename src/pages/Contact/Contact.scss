@@ -10,13 +10,16 @@
   margin-bottom: 20px;
 }
 .input__area {
+
   textarea {
     width: 100%;
     padding: 8px 12px 8px 12px;
     border: 1px solid var(--border-color);
   }
   input {
+    width: 100%;
     padding: 8px 12px 8px 12px;
+    border: 1px solid var(--border-color);
   }
 }
 @include Responsive(phone) {

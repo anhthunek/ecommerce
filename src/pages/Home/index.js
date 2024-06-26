@@ -15,15 +15,19 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useState, useEffect } from "react";
+import Loading from "../../components/Loading";
 function Home() {
   const [active, setActive] = useState("All");
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
+    setLoading(true)
     const getProducts = async () => {
       const res = await fetch("https://fakestoreapi.com/products");
       setData(await res.clone().json());
       setFilter(await res.json());
+      setLoading(false)
     };
     getProducts();
   }, []);
@@ -134,7 +138,7 @@ function Home() {
             </div>
           </div>
           <div className="products__list">
-        {filter.length >0 ?filter.map((prod) => {
+        {loading ? <Loading/> : filter.map((prod) => {
           return (
             <div key={prod.id} className="single__product">
               <div className="single__product__img">
@@ -155,7 +159,7 @@ function Home() {
               </div>
             </div>
           );
-        }) : <h3>Không có sản phẩm nào!</h3>}
+        })}
       </div>
         </div>
       </div>

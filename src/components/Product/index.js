@@ -6,15 +6,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { addProduct } from "../../pages/Cart/cartSlice";
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
+import Loading from "../Loading";
 function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const dispatch = useDispatch();
   const isLoggedin = useSelector((state) => state.user.login);
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
+    setLoading(true)
     const getProduct = async () => {
       const res = await fetch(`https://fakestoreapi.com/products/${id}`);
       setProduct(await res.json());
+      setLoading(false)
     };
     getProduct();
   }, []);
@@ -32,9 +36,11 @@ function Product() {
     }
   };
   return (
+    
+<>
+  {loading ? <Loading/> : (
     <div className="product__wrapper">
       <Breadcrums id={id} product={product} />
-
       <div className="product__container">
         <div className="product__img">
           <div className="single__product__bg"></div>
@@ -60,6 +66,8 @@ function Product() {
         </div>
       </div>
     </div>
+  ) }
+</>
   );
 }
 
