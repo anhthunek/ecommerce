@@ -1,14 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Contact.scss";
 import {
-  faAddressBook,
-  faAddressCard,
-  faLocation,
   faLocationDot,
   faMailBulk,
-  faMailReply,
-  faMap,
-  faMapLocation,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 function Contact() {
@@ -59,12 +53,16 @@ function Contact() {
           </div>
         </div>
         <div className="form__input">
-        <div className="input__area">
+          <div className="input__area">
             <label className="form__label">Message</label>
-              <textarea rows='10' type="text" placeholder="Nhập tin nhắn"></textarea>
+            <textarea
+              rows="10"
+              type="text"
+              placeholder="Nhập tin nhắn"
+            ></textarea>
+          </div>
         </div>
-        </div>
-        <button type="submit" className="form__btn"> 
+        <button type="submit" className="form__btn">
           Gửi
         </button>
       </form>

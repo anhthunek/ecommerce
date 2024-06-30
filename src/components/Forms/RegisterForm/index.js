@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./RegisterForm.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
+import { useSelector } from "react-redux";
 import alertify from "alertifyjs";
 import "alertifyjs/build/css/alertify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,11 +19,9 @@ function RegisterForm() {
   console.log(isLoggedIn);
   const validate = () => {
     const msg = {};
-    //name
 
     if (name.trim() === "") {
       msg.nameInput = "*Nhập họ tên";
-      //   nameRef.current.focus();
     } else if (name.trim().split(" ").length < 2) {
       msg.nameInput = "*Nhập tên đầy đủ";
     }
@@ -41,8 +38,7 @@ function RegisterForm() {
       msg.emailInput = "*Nhập email";
     } else if (!email.match(mailformat)) {
       msg.emailInput = "*Nhập địa chỉ email hợp lệ";
-    } 
-    else if (arrName.length > 0) {
+    } else if (arrName.length > 0) {
       msg.emailInput = "*Email đã tồn tại";
     }
     // password
@@ -59,10 +55,10 @@ function RegisterForm() {
     }
     if (phone.trim() === "") {
       msg.phoneInput = "*Nhập số điện thoại";
-    } 
+    }
     if (address.trim() === "") {
       msg.addressInput = "*Nhập số địa chỉ";
-    } 
+    }
 
     setErrorMsg(msg);
     return !Object.keys(msg).length > 0;
@@ -94,7 +90,6 @@ function RegisterForm() {
         "https://ecommerce-firebase-f716f-default-rtdb.firebaseio.com/userData.json",
         userdata
       );
-      // dispatch(login(userdata));
       localStorage.setItem(
         "currentUser",
         JSON.stringify({ user: userdata, login: true })
@@ -106,85 +101,89 @@ function RegisterForm() {
   };
   return (
     <div className="registerform__wrapper">
-    {!isLoggedIn ? (
-      <div className="registerform__container">
-        <form className="register_form" onSubmit={handleRegisterSubmit}>
-          <h2 className="form__title">Đăng ký</h2>
-          <div className="form__input" >
-            <div className="input__area">
-              <label className="form__label">Tên của bạn</label>
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Nhập tên của bạn"
-              />
-            </div>
+      {!isLoggedIn ? (
+        <div className="registerform__container">
+          <form className="register_form" onSubmit={handleRegisterSubmit}>
+            <h2 className="form__title">Đăng ký</h2>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Tên của bạn</label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Nhập tên của bạn"
+                />
+              </div>
               <p className="form__msg">{errorMsg.nameInput}</p>
-          </div>
-          <div className="form__input">
-            <div className="input__area">
-              <label className="form__label">Email</label>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Nhập email"
-              />
             </div>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Email</label>
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Nhập email"
+                />
+              </div>
               <p className="form__msg">{errorMsg.emailInput}</p>
-          </div>
-          <div className="form__input">
-            <div className="input__area">
-              <label className="form__label">Mật khẩu</label>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                type="password"
-                placeholder="Nhập mật khẩu"
-              />
             </div>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Mật khẩu</label>
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                />
+              </div>
               <p className="form__msg">{errorMsg.passwordInput}</p>
-          </div>
-          <div className="form__input">
-            <div className="input__area">
-              <label className="form__label">Nhập lại mật khẩu</label>
-              <input
-                value={cfPassword}
-                onChange={(e) => setCfPassword(e.target.value)}
-                type="password"
-                placeholder="Nhập mật khẩu"
-              />
             </div>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Nhập lại mật khẩu</label>
+                <input
+                  value={cfPassword}
+                  onChange={(e) => setCfPassword(e.target.value)}
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                />
+              </div>
               <p className="form__msg">{errorMsg.cfPasswordInput}</p>
-          </div>
-          <div className="form__input">
-            <div className="input__area">
-              <label className="form__label">Số điện thoại</label>
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="Nhập số điện thoại"
-              />
             </div>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Số điện thoại</label>
+                <input
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Nhập số điện thoại"
+                />
+              </div>
               <p className="form__msg">{errorMsg.phoneInput}</p>
-          </div>
-          <div className="form__input">
-            <div className="input__area">
-              <label className="form__label">Địa chỉ</label>
-              <input
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder="Nhập địa chỉ"
-              />
             </div>
+            <div className="form__input">
+              <div className="input__area">
+                <label className="form__label">Địa chỉ</label>
+                <input
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Nhập địa chỉ"
+                />
+              </div>
               <p className="form__msg">{errorMsg.addressInput}</p>
-          </div>
-          <button type="submit" className="form__btn">
-            Tạo tài khoản
-          </button>
-        </form>
-      </div>
-    ) : (<h3 className="text-msg">Bạn đã đăng nhập. Tiếp tục mua sắm thôi! <FontAwesomeIcon icon={faSmileWink}/></h3>)}
-      
+            </div>
+            <button type="submit" className="form__btn">
+              Tạo tài khoản
+            </button>
+          </form>
+        </div>
+      ) : (
+        <h3 className="text-msg">
+          Bạn đã đăng nhập. Tiếp tục mua sắm thôi!{" "}
+          <FontAwesomeIcon icon={faSmileWink} />
+        </h3>
+      )}
     </div>
   );
 }

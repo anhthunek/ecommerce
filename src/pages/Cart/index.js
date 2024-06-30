@@ -55,7 +55,7 @@ function Cart() {
                       <div className="item__quantity">
                         <h4>{item.title}</h4>
                         <div className="item__row">
-                          <p>{item.price} VND</p>
+                          <p>${item.price}</p>
                           <div className="product__desc__quantity">
                             <button onClick={() => dispatch(increment(item))}>
                               +
@@ -79,7 +79,7 @@ function Cart() {
                     <td colSpan={5} style={{ textAlign: "center" }}>
                       <strong>Total:</strong>
                     </td>
-                    <td style={{ textAlign: "right" }}>{Math.round(total,1)}</td>
+                    <td style={{ textAlign: "right" }}>${Math.round(total,1)}</td>
                   </tr>
                 </tfoot>
               </table>

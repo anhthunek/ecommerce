@@ -1,15 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Home.scss";
-import {
-  faAngleDown,
-  faArrowRight,
-  faBars,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
-import HeadlessTippy from "@tippyjs/react/headless";
 import { categories } from "../Products";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,38 +12,38 @@ function Home() {
   const [active, setActive] = useState("All");
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const getProducts = async () => {
       const res = await fetch("https://fakestoreapi.com/products");
       setData(await res.clone().json());
       setFilter(await res.json());
-      setLoading(false)
+      setLoading(false);
     };
     getProducts();
   }, []);
   const filterProduct = (cat) => {
-    setActive(cat)
+    setActive(cat);
     const result = data.filter((prod) => {
       return cat === "All" ? data : cat.toLowerCase() === prod.category;
-    }) 
-    setFilter(result)
+    });
+    setFilter(result);
   };
   return (
     <div className="home__wrapper">
       <div className="home__container">
         <div className="home__banner">
-          
-           <div className="home__banner__left"><img src="https://minion-vinovatheme.myshopify.com/cdn/shop/files/img-2_9c6b0dde-b59b-44ae-812c-0f74862db5dc_720x.jpg?v=1617764993"/>
+          <div className="home__banner__left">
+            <img src="https://minion-vinovatheme.myshopify.com/cdn/shop/files/img-2_9c6b0dde-b59b-44ae-812c-0f74862db5dc_720x.jpg?v=1617764993" />
             <div className="banner__content">
               <h5 className="banner__title">Winter Coats</h5>
-              <Link to='/products' className="banner__btn">Mua ngay
-           </Link>
+              <Link to="/products" className="banner__btn">
+                Mua ngay
+              </Link>
             </div>
-           </div>
-            
-          
+          </div>
+
           {/* Slide */}
           <div className="home__slide">
             <div className="slide-area">
@@ -79,7 +71,13 @@ function Home() {
                       />
                     </div>
                     <div className="banner__content">
-                      <Link className="banner__title2" to='/products'>A HUGE SALE <FontAwesomeIcon className="banner__icon" icon={faArrowRight} /></Link>
+                      <Link className="banner__title2" to="/products">
+                        A HUGE SALE{" "}
+                        <FontAwesomeIcon
+                          className="banner__icon"
+                          icon={faArrowRight}
+                        />
+                      </Link>
                       <p>UP TO 70% OFF FAHION COLLECTION SHOP NOW</p>
                     </div>
                   </div>
@@ -93,7 +91,13 @@ function Home() {
                       />
                     </div>
                     <div className="banner__content">
-                    <Link className="banner__title2" to='/products'>A HUGE SALE <FontAwesomeIcon className="banner__icon" icon={faArrowRight} /></Link>
+                      <Link className="banner__title2" to="/products">
+                        A HUGE SALE{" "}
+                        <FontAwesomeIcon
+                          className="banner__icon"
+                          icon={faArrowRight}
+                        />
+                      </Link>
                       <p>UP TO 70% OFF FAHION COLLECTION SHOP NOW</p>
                     </div>
                   </div>
@@ -102,7 +106,6 @@ function Home() {
             </div>
           </div>
         </div>
-
         <div className="home__banner__area">
           <p className="banner__text">
             Tận hưởng mùa hè với bộ sưu tập mới 2024
@@ -112,7 +115,6 @@ function Home() {
             <FontAwesomeIcon className="banner__icon" icon={faArrowRight} />
           </Link>
         </div>
-
         <div className="home__products">
           <h2 className="products__title">Products</h2>
           <div className="products__filter">
@@ -126,9 +128,8 @@ function Home() {
                         ? "category__list__item active"
                         : "category__list__item"
                     }
-                    onClick={()=> {
-                      
-                     filterProduct(cat.name)
+                    onClick={() => {
+                      filterProduct(cat.name);
                     }}
                   >
                     {cat.name}
@@ -138,29 +139,38 @@ function Home() {
             </div>
           </div>
           <div className="products__list">
-        {loading ? <Loading/> : filter.map((prod) => {
-          return (
-            <div key={prod.id} className="single__product">
-              <div className="single__product__img">
-                <Link to={`/products/${prod.id}`}>
-                  <div className="single__product__bg"></div>
-                  <img src={prod.image} alt="" />
-                </Link>
-              </div>
-              <div className="product__info">
-                <div className="product__info__category">{prod.category}</div>
-                <div className="product__info__name">
-                  <Link to={`/products/${prod.id}`}>{prod.title}</Link>
-                </div>
-                <div className="product__info__price">{prod.price} VND</div>
-             
-                <Link to={`/products/${prod.id}`} className="product__info__btn">Xem ngay</Link>
-              
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            {loading ? (
+              <Loading />
+            ) : (
+              filter.map((prod) => {
+                return (
+                  <div key={prod.id} className="single__product">
+                    <div className="single__product__img">
+                      <Link to={`/products/${prod.id}`}>
+                        <div className="single__product__bg"></div>
+                        <img src={prod.image} alt="" />
+                      </Link>
+                    </div>
+                    <div className="product__info">
+                      <div className="product__info__category">
+                        {prod.category}
+                      </div>
+                      <div className="product__info__name">
+                        <Link to={`/products/${prod.id}`}>{prod.title}</Link>
+                      </div>
+                      <div className="product__info__price">${prod.price}</div>
+                      <Link
+                        to={`/products/${prod.id}`}
+                        className="product__info__btn"
+                      >
+                        Xem ngay
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </div>
         </div>
       </div>
     </div>

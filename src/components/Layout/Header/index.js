@@ -3,17 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faXmark,
-  faCaretSquareDown,
   faCartArrowDown,
   faSignIn,
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import Login from "../../Forms/LoginForm";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../../Forms/LoginForm/userSlice";
+import { logout } from "../../Forms/LoginForm/userSlice";
 import Account from "../../Account";
 function Header() {
   const [showMenu, setShowMenu] = useState(false);

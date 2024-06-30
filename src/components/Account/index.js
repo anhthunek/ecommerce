@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import './Account.scss'
-import Tippy from "@tippyjs/react";
 import {useDispatch} from 'react-redux';
 import HeadlessTippy from "@tippyjs/react/headless";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAnglesDown, faArrowDown, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { logout } from "../Forms/LoginForm/userSlice";
 import { Link } from "react-router-dom";
 function Account({className}) {

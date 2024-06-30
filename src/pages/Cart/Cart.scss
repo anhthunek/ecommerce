@@ -39,7 +39,7 @@ tr:nth-child(even) {
 .product__desc__quantity {
   display: flex;
   justify-content: center;
-  width: 150px;
+  max-width: 120px;
   margin-bottom: 20px;
   border: 1px solid var(--border-color);
   button {

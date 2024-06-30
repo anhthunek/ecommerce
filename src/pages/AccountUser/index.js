@@ -2,7 +2,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./AccountUser.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { logout } from "../../components/Forms/LoginForm/userSlice";
 function AccountUser() {
+  const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.user.login)
   const userInfo= useSelector(state => {
     if (isLoggedIn) {
@@ -15,7 +18,11 @@ function AccountUser() {
       }
     }
   })
- 
+  const handleClickLogOut = (e) => {
+    e.preventDefault();
+    dispatch(logout())
+    localStorage.removeItem('currentUser')
+  }
   return (
     <div className="account__wrapper">
       {
@@ -32,9 +39,8 @@ function AccountUser() {
             <div className="account__details__area">
               <div className="account__details__col">
                 <ul>
-                  <li><a href="">Giỏ hàng</a></li>
-                  <li><a href="">Đổi mật khẩu</a></li>
-                  <li><a href="">Đăng xuất</a></li>
+                  <li><Link to='/cart'>Giỏ hàng</Link></li>
+                  <li><a href="" onClick={handleClickLogOut}>Đăng xuất</a></li>
                 </ul>
               </div>
               <div className="account__details__col">
@@ -47,11 +53,6 @@ function AccountUser() {
                 </ul>
               </div>
             </div>
-        </div>
-        <div className="account__orders">
-            <h2 className="account__details__title">
-              Lịch sử mua hàng
-            </h2>
         </div>
       </div>
         )

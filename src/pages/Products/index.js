@@ -1,11 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Breadcrums from "../../components/Breadcrums";
 import "./Products.scss";
-import {
-  faArrowRight,
-  faSearch,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
@@ -40,24 +36,24 @@ function Products() {
   const [filterMax, setFilterMax] = useState("");
   const [active, setActive] = useState("All");
   const [select, setSelect] = useState("none");
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   console.log(typeof filterMin);
-  
+
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const getProducts = async () => {
       const res = await fetch("https://fakestoreapi.com/products");
       setData(await res.clone().json());
       setFilter(await res.json());
-      setLoading(false)
+      setLoading(false);
     };
     getProducts();
   }, []);
   console.log(data);
   const filterProduct = () => {
     if (filterMax === "" || filterMin === "") {
-      setFilterMax('')
-      setFilterMin('')
+      setFilterMax("");
+      setFilterMin("");
     }
     const result = data.filter((prod) => {
       if (active === "All") {
@@ -83,7 +79,7 @@ function Products() {
           : result.sort((a, b) => b.price - a.price)
         : result;
 
-    setFilter(order);  
+    setFilter(order);
   };
 
   return (
@@ -99,9 +95,6 @@ function Products() {
             onChange={(e) => setFilterSearch(e.target.value.toLowerCase())}
             placeholder="Tìm kiếm sản phẩm"
           />
-          {/* <button onClick={filterProduct} className="home__input__btn">
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button> */}
         </div>
       </div>
       <div className="products__filter">
@@ -110,18 +103,18 @@ function Products() {
 
           <div className="filter__price__area">
             <div className="filter__price__input">
-              <label>From</label>
+              <label>Từ</label>
               <input
                 type="number"
                 value={filterMin}
-                placeholder="VND"
+                placeholder="$"
                 onChange={(e) => setFilterMin(e.target.value)}
               />
               <span className="mx"></span>
-              <label>To</label>
+              <label>đến</label>
               <input
                 type="number"
-                placeholder="VND"
+                placeholder="$"
                 value={filterMax}
                 onChange={(e) => setFilterMax(e.target.value)}
               />
@@ -141,7 +134,6 @@ function Products() {
                 }
                 onClick={() => {
                   setActive(cat.name);
-                  // filterProduct()
                 }}
               >
                 {cat.name}
@@ -168,28 +160,38 @@ function Products() {
         </button>
       </div>
       <div className="products__list">
-        {!loading ? (filter.length > 0 ? filter.map((prod) => 
-            (
-            <div key={prod.id} className="single__product">
-              <div className="single__product__img">
-                <Link to={`/products/${prod.id}`}>
-                  <div className="single__product__bg"></div>
-                  <img src={prod.image} alt="" />
-                </Link>
-              </div>
-              <div className="product__info">
-                <div className="product__info__category">{prod.category}</div>
-                <div className="product__info__name">
-                  <Link to={`/products/${prod.id}`}>{prod.title}</Link>
+        {!loading ? (
+          filter.length > 0 ? (
+            filter.map((prod) => (
+              <div key={prod.id} className="single__product">
+                <div className="single__product__img">
+                  <Link to={`/products/${prod.id}`}>
+                    <div className="single__product__bg"></div>
+                    <img src={prod.image} alt="" />
+                  </Link>
                 </div>
-                <div className="product__info__price">{prod.price} VND</div>
-                <Link to={`/products/${prod.id}`} className="product__info__btn">Xem ngay</Link>
+                <div className="product__info">
+                  <div className="product__info__category">{prod.category}</div>
+                  <div className="product__info__name">
+                    <Link to={`/products/${prod.id}`}>{prod.title}</Link>
+                  </div>
+                  <div className="product__info__price">${prod.price}</div>
+                  <Link
+                    to={`/products/${prod.id}`}
+                    className="product__info__btn"
+                  >
+                    Xem ngay
+                  </Link>
+                </div>
               </div>
-            </div>
+            ))
+          ) : (
+            <h4>Không có sản phẩm nào</h4>
           )
-        ): <h4>Không có sản phẩm nào</h4>)  : <Loading/>}
+        ) : (
+          <Loading />
+        )}
       </div>
-      
     </div>
   );
 }

@@ -48,7 +48,7 @@ function Product() {
         </div>
         <div className="product__desc">
           <h1 className="product__desc__title">{product.title}</h1>
-          <p className="product__desc__price">{product.price} VND</p>
+          <p className="product__desc__price">${product.price}</p>
           <div className="product__desc__btns">
             <button className="btn__cart" onClick={handleClickAddCart}>
               Thêm vào giỏ hàng

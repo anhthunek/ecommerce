@@ -116,9 +116,6 @@ function LoginForm({ onClickClose }) {
             </div>
             <p className="form__msg">{password === '' && errorMsg.passwordInput}</p>
          </div>
-          <a href="#" className="form__forgot">
-            Bạn quên mật khẩu à?
-          </a>
           <button type="submit" className="form__btn">
             Đăng nhập
           </button>

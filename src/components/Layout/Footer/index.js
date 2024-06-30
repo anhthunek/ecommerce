@@ -1,28 +1,18 @@
 import "./Footer.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
-  faFacebookF,
   faFacebookSquare,
-  faInstagram,
   faInstagramSquare,
-  faPinterestP,
   faPinterestSquare,
   faTiktok,
-  faTwitter,
   faTwitterSquare,
-  faYoutube,
-  faYoutubeSquare,
 } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
   return (
     <div className="footer_wrapper">
       <div className="footer__container">
-        <h1 className="footer__logo" >
-          MySHOP
-        </h1>
-
+        <h1 className="footer__logo">MySHOP</h1>
         <div className="footer_row">
           <p className="footer__title">Mua sắm</p>
           <ul className="row__list">
@@ -74,7 +64,6 @@ function Footer() {
           <FontAwesomeIcon className="footer__icon" icon={faPinterestSquare} />
           <FontAwesomeIcon className="footer__icon" icon={faTiktok} />
         </div>
-
         <p className="footer__copyright">
           <span>Made by ThuAnhPhan</span>
         </p>
